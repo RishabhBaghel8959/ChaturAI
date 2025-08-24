@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Python venv
+.venv/
+
+# Vendor references
+vendor/
