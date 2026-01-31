@@ -1,6 +1,6 @@
 // frontend/src/services/chatService.js
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 /**
  * Get authorization headers with token

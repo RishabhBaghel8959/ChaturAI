@@ -1,6 +1,6 @@
 // frontend/src/services/authService.js
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 /**
  * Login user with email and password
