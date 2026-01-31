@@ -11,7 +11,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
  */
 export const loginUser = async (email, password, isSignup = false) => {
   try {
-    const endpoint = isSignup ? '/auth/signup' : '/auth/login';
+    const endpoint = isSignup ? '/api/auth/signup' : '/api/auth/login';
     
     const response = await fetch(`${API_BASE}${endpoint}`, {
       method: 'POST',
@@ -114,7 +114,7 @@ export const refreshUserData = async () => {
       throw new Error('No token found');
     }
 
-    const response = await fetch(`${API_BASE}/auth/me`, {
+    const response = await fetch(`${API_BASE}/api/auth/me`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -144,7 +144,7 @@ export const refreshUserData = async () => {
  */
 export const changePassword = async (currentPassword, newPassword) => {
   try {
-    const response = await fetch(`${API_BASE}/auth/change-password`, {
+    const response = await fetch(`${API_BASE}/api/auth/change-password`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify({
@@ -174,7 +174,7 @@ export const validateToken = async () => {
     const token = getStoredToken();
     if (!token) return false;
 
-    const response = await fetch(`${API_BASE}/auth/validate`, {
+    const response = await fetch(`${API_BASE}/api/auth/validate`, {
       method: 'POST',
       headers: getAuthHeaders()
     });
@@ -192,7 +192,7 @@ export const validateToken = async () => {
  */
 export const serverLogout = async () => {
   try {
-    const response = await fetch(`${API_BASE}/auth/logout`, {
+    const response = await fetch(`${API_BASE}/api/auth/logout`, {
       method: 'POST',
       headers: getAuthHeaders()
     });

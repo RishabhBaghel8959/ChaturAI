@@ -39,7 +39,7 @@ export const sendMessage = async (question, files = []) => {
       }
     });
 
-    const response = await fetch(`${API_BASE}/chat/query`, {
+    const response = await fetch(`${API_BASE}/api/chat/query`, {
       method: 'POST',
       headers: getHeaders(true),
       body: formData
@@ -63,7 +63,7 @@ export const sendMessage = async (question, files = []) => {
  */
 export const getChatHistory = async () => {
   try {
-    const response = await fetch(`${API_BASE}/chats`, {
+    const response = await fetch(`${API_BASE}/api/chats`, {
       method: 'GET',
       headers: getHeaders()
     });
@@ -86,7 +86,7 @@ export const getChatHistory = async () => {
  */
 export const getChatById = async (chatId) => {
   try {
-    const response = await fetch(`${API_BASE}/chats/${chatId}`, {
+    const response = await fetch(`${API_BASE}/api/chats/${chatId}`, {
       method: 'GET',
       headers: getHeaders()
     });
@@ -109,7 +109,7 @@ export const getChatById = async (chatId) => {
  */
 export const createChat = async (title = 'New Chat') => {
   try {
-    const response = await fetch(`${API_BASE}/chats`, {
+    const response = await fetch(`${API_BASE}/api/chats`, {
       method: 'POST',
       headers: getHeaders(),
       body: JSON.stringify({ title })
@@ -134,7 +134,7 @@ export const createChat = async (title = 'New Chat') => {
  */
 export const saveChatHistory = async (chatId, messages) => {
   try {
-    const response = await fetch(`${API_BASE}/chats/${chatId}`, {
+    const response = await fetch(`${API_BASE}/api/chats/${chatId}`, {
       method: 'PUT',
       headers: getHeaders(),
       body: JSON.stringify({ 
@@ -165,7 +165,7 @@ export const saveChatHistory = async (chatId, messages) => {
  */
 export const updateChatTitle = async (chatId, title) => {
   try {
-    const response = await fetch(`${API_BASE}/chats/${chatId}/title`, {
+    const response = await fetch(`${API_BASE}/api/chats/${chatId}/title`, {
       method: 'PATCH',
       headers: getHeaders(),
       body: JSON.stringify({ title })
@@ -189,7 +189,7 @@ export const updateChatTitle = async (chatId, title) => {
  */
 export const deleteChat = async (chatId) => {
   try {
-    const response = await fetch(`${API_BASE}/chats/${chatId}`, {
+    const response = await fetch(`${API_BASE}/api/chats/${chatId}`, {
       method: 'DELETE',
       headers: getHeaders()
     });
@@ -212,7 +212,7 @@ export const deleteChat = async (chatId) => {
  */
 export const deleteMultipleChats = async (chatIds) => {
   try {
-    const response = await fetch(`${API_BASE}/chats/batch-delete`, {
+    const response = await fetch(`${API_BASE}/api/chats/batch-delete`, {
       method: 'DELETE',
       headers: getHeaders(),
       body: JSON.stringify({ chat_ids: chatIds })
@@ -236,7 +236,7 @@ export const deleteMultipleChats = async (chatIds) => {
  */
 export const exportChat = async (chatId) => {
   try {
-    const response = await fetch(`${API_BASE}/chats/${chatId}/export`, {
+    const response = await fetch(`${API_BASE}/api/chats/${chatId}/export`, {
       method: 'GET',
       headers: getHeaders()
     });
